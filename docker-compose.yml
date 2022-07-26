@@ -1,0 +1,16 @@
+version: "3.9" 
+services:
+  todoapi:
+    build: ./todoapi
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./todoapi:/app # Mount local dir to the container for hot-reload
+    command: npm run start:dev
+  todofront:
+    build: ./todofront
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./todofront:/app # Mount local dir to the container for hot-reload
+    command: npm run dev

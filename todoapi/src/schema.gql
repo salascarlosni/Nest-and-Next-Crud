@@ -1,0 +1,70 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Task {
+  id: Int!
+  description: String!
+  selected: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type TaskList {
+  count: Int!
+  tasks: [Task!]!
+}
+
+type User {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  """Get a list of tasks"""
+  findAll: TaskList!
+
+  """Get a specific task"""
+  findOne(id: Int!): Task!
+  users: [User!]!
+  user(id: Int!): User!
+}
+
+type Mutation {
+  """create a new task"""
+  createTask(createTaskInput: CreateTaskInput!): Task!
+
+  """Update an existing task"""
+  updateTask(updateTaskInput: UpdateTaskInput!): Task!
+
+  """Delete an existing tasks"""
+  removeTask(id: Int!): Task!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+}
+
+input CreateTaskInput {
+  description: String!
+}
+
+input UpdateTaskInput {
+  id: Int!
+  description: String!
+}
+
+input CreateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
